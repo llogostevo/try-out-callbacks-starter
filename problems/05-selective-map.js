@@ -42,8 +42,24 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
 - How many times are you calling each callback function?
 *******************************************************************************/
 
-let selectiveMap = function() {
+let selectiveMap = function(array, callback1, callback2) {
 
+// define new array 
+    let newArray = []
+
+    // loop through each array element
+    for (let i= 0; i<array.length; i++){
+        if (callback1(array[i])==true){
+            //elements are replaced with the results of calling the second callback on the element
+            // only if calling the first callback on the element results in true. 
+            newArray.push(callback2(array[i]));
+        } else{
+            // If calling the first callback on an element results in false
+            // then the element should not be changed in the new array.
+            newArray.push(array[i]);
+        }
+    }
+    return newArray;
 };
 
 

@@ -23,8 +23,15 @@ let result3 = mySome(['soup', 'noodles', 'bike', 'ship'], function(ele) {
 console.log(result3);   // true
 *******************************************************************************/
 
-let mySome = function() {
-
+let mySome = function(array, callback) {
+    //callback for each element of the array, passing in the element and its index. 
+    for (let i = 0; i<array.length; i++){
+        if (callback(array[i], i) == true){
+            //return a boolean indicating whether or not at least one element of the array returns true when passed into the callback.
+            return true;
+        }
+    }
+    return false; 
 };
 
 
