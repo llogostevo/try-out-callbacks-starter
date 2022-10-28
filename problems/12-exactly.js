@@ -27,7 +27,28 @@ console.log(result4); // true
 
 *******************************************************************************/
 
-let exactly = function() {
+let exactly = function(array, number, callback) {
+
+    // set a counter at zero
+    let counter = 0;
+
+    // loop through array 
+    for (let i=0; i<array.length; i++){
+        // check if the callback on element returns true, increment counter if it does
+        if (callback(array[i])==true){
+            counter++
+        }
+    }
+
+    // check if the number of true elements matches the number provided in function
+    if (counter==number){
+        //return true for exact match
+        return true;
+    } else{
+        //return false if no match
+        return false;
+    }
+
 
 };
 
