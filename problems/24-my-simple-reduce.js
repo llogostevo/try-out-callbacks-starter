@@ -34,7 +34,17 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
   optional initial accumulator
 *******************************************************************************/
 
-let mySimpleReduce = function() {
+let mySimpleReduce = function(array, callback) {
+    // set the accumulator as the first element in the array
+    let accumulator = array[0];
+
+    // loop through all elements after the first one
+    for (let i=1; i<array.length; i++){
+        //reset the accumulator based on the result of hte callback an dprevious accumluated value. 
+        accumulator = callback(accumulator, array[i]);
+    }
+    // return the final value of hte accumulator. 
+    return accumulator;
 
 };
 

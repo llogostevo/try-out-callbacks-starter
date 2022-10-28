@@ -28,8 +28,17 @@ let result4 = none([4, -5, 7, -1], function(n) {
 console.log(result4);   // false
 *******************************************************************************/
 
-let none = function() {
+let none = function(array, callback) {
 
+    // loop through each array item 
+    for (i=0; i<array.length; i++){
+        // if callback on element is true for any items then return false. 
+        if ((callback(array[i]))){ 
+            return false;
+        }
+    }
+    // if all elements are returned false from callback then return true. 
+    return true; 
 };
 
 

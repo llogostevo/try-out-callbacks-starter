@@ -18,9 +18,19 @@ console.log(greaterCallbackValue(1, doubler, squarer));     // 2
 console.log(greaterCallbackValue(9, Math.sqrt, doubler));   // 18
 *******************************************************************************/
 
-let greaterCallbackValue = function() {
+let greaterCallbackValue = function(value, callback1, callback2) {
 
-};
+    // set callback results, improves efficiency as only called once
+    let result1 = callback1(value)
+    let result2 = callback2(value)
+
+    // check which result is greatest and return that result. 
+    if (result1>result2){
+        return result1;
+    }else{
+        return result2;
+    }
+    };
 
 
 

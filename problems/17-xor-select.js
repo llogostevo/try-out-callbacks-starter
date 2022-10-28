@@ -31,8 +31,20 @@ console.log(
 // [ 'art', 'app', 'buttery' ]
 *******************************************************************************/
 
-let xorSelect = function() {
+let xorSelect = function(array, callback1, callback2) {
+  let newArray =[];
 
+  // xor
+   // TF = T / TT = F / FT = T / FF = F
+
+   for (let i=0; i<array.length; i++){
+    // ^ bitwise (xor) operator in javascript
+    // push to the new array elements that meet one of the two callbacks but not boths
+      if (callback1(array[i]) ^ callback2(array[i])){
+        newArray.push(array[i])
+      }
+   }
+  return newArray;
 };
 
 

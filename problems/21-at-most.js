@@ -22,7 +22,23 @@ console.log(atMost(['boat', 'arc', 'cat', 'car', 'academy'], 1, startsWithA));  
 
 *******************************************************************************/
 
-let atMost = function() {
+let atMost = function(array, maxNum, callback) {
+
+    // loop through all elements in array passing in callback
+    // if return rfom cllback back true then increment the counter
+    let counter = 0;
+    for (let i=0; i<array.length; i++){
+        if (callback(array[i])){
+            counter++
+        }
+    }
+
+    //check the counter against the max Number, if the counter is less than or equal to max number then return true
+    if (counter<=maxNum) {
+        return true;
+    } else{
+        return false;
+    }
 
 };
 
