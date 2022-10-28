@@ -21,7 +21,18 @@ console.log(myEvery(['book', 'door'], hasO));           // true
 console.log(myEvery(['book', 'door', 'pen'], hasO));    // false
 *******************************************************************************/
 
-let myEvery = function() {
+let myEvery = function(array, callback) {
+    // loop through each element in the array
+    for (let i = 0; i<array.length; i++) {
+        // check if the callback returns a false result on the array element
+        if (callback(array[i]) == false){
+            // if returns false then exit function and return false
+            return false; 
+        }
+    }
+    // if no false elements are returned then can return true 
+    return true;
+
 
 };
 

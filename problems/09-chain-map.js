@@ -29,11 +29,20 @@ console.log(chainMap(4, square, half));         // 8
 console.log(chainMap(4, half, square));         // 4
 *******************************************************************************/
 
-let chainMap = function() {
+// set callbacks as an array to capture the rest arguments of callbacks
+let chainMap = function(value, ...callbacks) {
+    // set the first result to be the first callback
+    // note the ability to call the parameter within brackets next to the array call 
+    let result = callbacks[0](value);
+    // loop thorugh each of the callback elements starting at the second callback argument
+    for (let i=1; i <callbacks.length; i++){
+        // pass in the result of the previous callback into the the current callback
+        result = callbacks[i](result);
+    }
 
+    // return the final result
+    return result;
 };
-
-
 
 
 
